@@ -1,0 +1,19 @@
+<div>
+   
+   <accordion close-others="true">
+
+      <div ng-repeat="notification in notifications">
+
+         <div class="alert" ng-class="addCSSClass(notification)">
+
+            <strong>{{notification.severity.title}}</strong> {{": " + notification.title}}
+            <span style="float:right" class="glyphicon glyphicon-remove" ng-click="clearNotification($index)"></span>
+
+         </div>
+
+
+      </div>
+
+  </accordion>
+
+</div>

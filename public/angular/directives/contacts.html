@@ -1,0 +1,32 @@
+<div ng-controller="ContactsCtrl">
+	<h2>Contacts<hr></h2>
+	<div class="pull-right">
+		<a class="btn btn-primary btn-lg" 
+			href="#/add-contact">Add Contact
+		</a>
+	</div>
+	<h3 ng-show="contacts == 0">You do not have any emergency contacts saved.</h3>
+	<table class="table table-striped table-hover" ng-show="contacts != 0">
+		<thead>
+			<tr>
+				<th>Photo</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts">
+				<td>{{ contact.photo }}</td>
+				<td>{{ contact.user.first_name }} {{ contact.user.last_name }}</td>
+				<td>{{ contact.user.phone_number }}</td>
+				<td>{{ contact.user.email }}</td>
+				<td>
+					<a class="btn btn-info btn-lg"
+						href="#/contacts/{{ contact.id }}/modify">Edit</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

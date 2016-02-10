@@ -1,0 +1,34 @@
+<div ng-controller="MedicationsCtrl">
+	<h2>Medications<hr></h2>
+	<div class="pull-right">
+		<a class="btn btn-primary btn-lg"
+			href="#/add-medication">
+			Add Medication
+		</a>
+	</div>
+	<h2 ng-hide="medications">You do not have any medications.</h2>
+	<table class="table" ng-show="medications">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Dosage</th>
+				<th>Requirements</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="medication in medications"
+				ng-hide="edit">
+				<td>{{ medication.name }}</td>
+				<td>{{ medication.dosage }} every {{ medication.dosage_time }}</td>
+				<td>{{ medication.requirements }}</td>
+				<td>
+					<a class="btn btn-info btn-lg"
+						href="#/medications/{{ medication.id }}/modify">Edit</a>
+					<a class="btn btn-default btn-lg"
+						href="#/medications/{{ medication.id }}">View</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
